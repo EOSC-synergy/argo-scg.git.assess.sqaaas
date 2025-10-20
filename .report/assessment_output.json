@@ -1,0 +1,1290 @@
+{
+    "meta": {
+        "version": "3.5.0",
+        "report_json_url": "https://raw.githubusercontent.com/eosc-synergy/argo-scg.git.assess.sqaaas/master/.report/assessment_output.json",
+        "report_permalink": "https://sqaaas.eosc-synergy.eu/full-assessment/report/https://raw.githubusercontent.com/eosc-synergy/argo-scg.git.assess.sqaaas/master/.report/assessment_output.json",
+        "timestamp": 1760981561.733135
+    },
+    "repository": [
+        {
+            "url": "https://github.com/ARGOeu/argo-scg.git",
+            "name": "ARGOeu/argo-scg",
+            "tag": "master",
+            "commit_id": "662831a649fd60c5c2b2a6543d086169b0610744",
+            "is_main_repo": true,
+            "avatar_url": "https://avatars.githubusercontent.com/u/6882712?v=4",
+            "description": null,
+            "languages": null,
+            "topics": null,
+            "stargazers_count": null,
+            "watchers_count": null,
+            "contributors_count": null,
+            "forks_count": null,
+            "badge_status": "no_badge"
+        }
+    ],
+    "report": {
+        "QC.Acc": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Acc01": {
+                    "description": "Is the source code managed with a Version Control System?",
+                    "requirement_level": "MUST",
+                    "hint": "The source code shall be managed with Git and remain publicly available for this criterion to be successful. Please check <a href=\"https://git-scm.com/book/es/v2\" target=\"_blank\">Pro Git</a> docs about how to get started using Git tool. Guidelines provided by the most popular social coding platforms (<a href=\"https://docs.github.com/get-started\" target=\"_blank\">GitHub</a>, <a href=\"https://about.gitlab.com/get-started/\" target=\"_blank\">GitLab</a>) are also a good starting point",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Source code uses Git for version control",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": "scm",
+                                "version": "2.34.1",
+                                "docker": {
+                                    "image": "bitnami/git:2.34.1",
+                                    "reviewed": "2021-12-30"
+                                },
+                                "ci": {
+                                    "name": "QC.Acc github.com/ARGOeu/argo-scg git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/34/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                }
+            },
+            "coverage": {
+                "percentage": 100,
+                "total_subcriteria": 1,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Doc": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Doc06.1": {
+                    "description": "Is the software scope outlined in the code repository?",
+                    "requirement_level": "MUST",
+                    "hint": "A README file presents your software to the audience interested in your software project. Several online sites simplify the task of creating the README file, such as <a href=\"https://www.makeareadme.com/\" target=\"_blank\">Make a README</a> or <a href=\"https://readme.so/\" target=\"_blank\">readme.so</a> sites. Be sure to add it to the code repository's root path",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "A README file is present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/ARGOeu/argo-scg find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 28726}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 28726
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc06.3": {
+                    "description": "Does the project establish a code of conduct for its participants?",
+                    "requirement_level": "MUST",
+                    "hint": "A CODE_OF_CONDUCT file sets the path for a constructive, respectful and positive atmosphere among all the contributors in your software project. Of course you can define your own, but in case you want to rely on external and widely-adopted code of conducts check out some of the most popular ones: <a href=\"https://contributor-covenant.org/\" target=\"_blank\">Contributor Covenant</a> or <a href=\"https://web.archive.org/web/20200330154000/http://citizencodeofconduct.org/\" target=\"_blank\">Citizen Code of Conduct</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CODE_OF_CONDUCT file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/ARGOeu/argo-scg find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 28726}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 28726
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc06.2": {
+                    "description": "Is there a clear path or guidelines on how to contribute to the code?",
+                    "requirement_level": "MUST",
+                    "hint": "A CONTRIBUTING file shall be present in the root path of the code repository describing the expected workflow to follow when adding contributions. Please check <a href=\"https://mozillascience.github.io/working-open-workshop/contributing/\" target=\"_blank\">Mozilla's guidelines</a> and <a href=\"https://github.com/github/docs/blob/main/CONTRIBUTING.md\" target=\"_blank\">GitHub's CONTRIBUTING.md example</a> to get inspired on how to write a good CONTRIBUTING file",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "A CONTRIBUTING file is not present in the code repository",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-find_doc_files",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "find_doc_files.py",
+                                "lang": "Contribution-enabling Files",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/Dockerfile",
+                                    "reviewed": "2022-01-26"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/ARGOeu/argo-scg find_doc_files.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "find_doc_files.py --file_type all"
+                                    ],
+                                    "stdout_text": "{\"README\": [{\"file_name\": \"README.md\", \"size\": 28726}], \"CODE_OF_CONDUCT\": [], \"CONTRIBUTING\": []}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/43/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "README": [
+                                    {
+                                        "file_name": "README.md",
+                                        "size": 28726
+                                    }
+                                ],
+                                "CODE_OF_CONDUCT": [],
+                                "CONTRIBUTING": []
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": true
+                },
+                "QC.Doc01.1": {
+                    "description": "Are docs managed in the same repository as code?",
+                    "requirement_level": "MAY",
+                    "hint": "This subcriterion will succeed if the documentation files exist on the same repository as the source code, e.g. under a <code>docs/</code> folder",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "Documentation resides in the same repository as code",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-boolean",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "git",
+                                "lang": null,
+                                "version": null,
+                                "docker": null,
+                                "ci": {
+                                    "name": "QC.Doc github.com/ARGOeu/argo-scg git",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "git rev-parse --is-inside-work-tree "
+                                    ],
+                                    "stdout_text": "true",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/52/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Doc02.X": {
+                    "description": "Are docs following a style for the Markdown markup language?",
+                    "requirement_level": "MAY",
+                    "hint": "When using a docs-as-code approach, the style of the markup language is being checked. SQAaaS relies on <a href=\"https://github.com/markdownlint/markdownlint/\" target=\"_blank\">markdownlint</a> for Markdown files and <a href=\"https://github.com/twolfson/restructuredtext-lint/\" target=\"_blank\">restructuredtext-lint</a> for reStructuredText",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Docs are not fully compliant with markdownlint standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-markdownlint",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "markdownlint",
+                                "lang": "Markdown",
+                                "version": "0.11.0",
+                                "docker": {
+                                    "dockerfile": "QC.Doc/markdownlint/Dockerfile",
+                                    "reviewed": "1970-01-01"
+                                },
+                                "ci": {
+                                    "name": "QC.Doc github.com/ARGOeu/argo-scg markdownlint",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "mdl --json  ."
+                                    ],
+                                    "stdout_text": "[{\"filename\":\"./CHANGELOG.md\",\"line\":70,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./CHANGELOG.md\",\"line\":17,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":29,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":35,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":42,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":48,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":54,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":60,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":67,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":73,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":81,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":89,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":93,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":99,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":106,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":112,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":119,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":123,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":130,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":138,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":145,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":156,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":163,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":170,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":176,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":184,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":191,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":195,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":202,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":221,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":234,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./CHANGELOG.md\",\"line\":244,\"rule\":\"MD024\",\"aliases\":[\"no-duplicate-header\"],\"description\":\"Multiple headers with the same content\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md024---multiple-headers-with-the-same-content\"},{\"filename\":\"./README.md\",\"line\":277,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":278,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":279,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":281,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":282,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":283,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":285,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":286,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":287,\"rule\":\"MD004\",\"aliases\":[\"ul-style\"],\"description\":\"Unordered list style\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md004---unordered-list-style\"},{\"filename\":\"./README.md\",\"line\":91,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":94,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":117,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":162,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":204,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":248,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":260,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":301,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":303,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":430,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":519,\"rule\":\"MD009\",\"aliases\":[\"no-trailing-spaces\"],\"description\":\"Trailing spaces\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md009---trailing-spaces\"},{\"filename\":\"./README.md\",\"line\":5,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":9,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":17,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":55,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":56,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":57,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":58,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":59,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":60,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":61,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":62,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":63,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":64,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":65,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":69,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":77,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":83,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":85,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":91,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":103,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":117,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":119,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":123,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":144,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":148,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":165,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":167,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":170,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":173,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":175,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":177,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":182,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":186,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":205,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":207,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":210,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":213,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":216,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":219,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":222,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":225,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":230,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":231,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":232,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":238,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":244,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":248,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":250,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":254,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":258,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":260,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":262,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":264,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":266,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":268,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":270,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":274,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":277,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":278,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":283,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":285,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":287,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":289,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":293,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":295,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":301,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":303,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":305,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":307,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":309,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":311,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":312,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":314,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":318,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":322,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":323,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":324,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":345,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":349,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":352,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":364,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":366,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":368,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":374,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":376,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":378,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":380,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":384,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":388,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":401,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":403,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":413,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":418,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":446,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":448,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":457,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":462,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":472,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":515,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":519,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":521,\"rule\":\"MD013\",\"aliases\":[\"line-length\"],\"description\":\"Line length\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md013---line-length\"},{\"filename\":\"./README.md\",\"line\":280,\"rule\":\"MD029\",\"aliases\":[\"ol-prefix\"],\"description\":\"Ordered list item prefix\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md029---ordered-list-item-prefix\"},{\"filename\":\"./README.md\",\"line\":284,\"rule\":\"MD029\",\"aliases\":[\"ol-prefix\"],\"description\":\"Ordered list item prefix\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md029---ordered-list-item-prefix\"},{\"filename\":\"./README.md\",\"line\":59,\"rule\":\"MD038\",\"aliases\":[\"no-space-in-code\"],\"description\":\"Spaces inside code span elements\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md038---spaces-inside-code-span-elements\"},{\"filename\":\"./README.md\",\"line\":60,\"rule\":\"MD038\",\"aliases\":[\"no-space-in-code\"],\"description\":\"Spaces inside code span elements\",\"docs\":\"https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md#md038---spaces-inside-code-span-elements\"}]",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/61/log?consoleFull"
+                                },
+                                "level": "RECOMMENDED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "./CHANGELOG.md": {
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            70
+                                        ]
+                                    },
+                                    "MD024": {
+                                        "description": "Multiple headers with the same content",
+                                        "line": [
+                                            17,
+                                            29,
+                                            35,
+                                            42,
+                                            48,
+                                            54,
+                                            60,
+                                            67,
+                                            73,
+                                            81,
+                                            89,
+                                            93,
+                                            99,
+                                            106,
+                                            112,
+                                            119,
+                                            123,
+                                            130,
+                                            138,
+                                            145,
+                                            156,
+                                            163,
+                                            170,
+                                            176,
+                                            184,
+                                            191,
+                                            195,
+                                            202,
+                                            221,
+                                            234,
+                                            244
+                                        ]
+                                    }
+                                },
+                                "./README.md": {
+                                    "MD004": {
+                                        "description": "Unordered list style",
+                                        "line": [
+                                            277,
+                                            278,
+                                            279,
+                                            281,
+                                            282,
+                                            283,
+                                            285,
+                                            286,
+                                            287
+                                        ]
+                                    },
+                                    "MD009": {
+                                        "description": "Trailing spaces",
+                                        "line": [
+                                            91,
+                                            94,
+                                            117,
+                                            162,
+                                            204,
+                                            248,
+                                            260,
+                                            301,
+                                            303,
+                                            430,
+                                            519
+                                        ]
+                                    },
+                                    "MD013": {
+                                        "description": "Line length",
+                                        "line": [
+                                            5,
+                                            9,
+                                            17,
+                                            55,
+                                            56,
+                                            57,
+                                            58,
+                                            59,
+                                            60,
+                                            61,
+                                            62,
+                                            63,
+                                            64,
+                                            65,
+                                            69,
+                                            77,
+                                            83,
+                                            85,
+                                            91,
+                                            103,
+                                            117,
+                                            119,
+                                            123,
+                                            144,
+                                            148,
+                                            165,
+                                            167,
+                                            170,
+                                            173,
+                                            175,
+                                            177,
+                                            182,
+                                            186,
+                                            205,
+                                            207,
+                                            210,
+                                            213,
+                                            216,
+                                            219,
+                                            222,
+                                            225,
+                                            230,
+                                            231,
+                                            232,
+                                            238,
+                                            244,
+                                            248,
+                                            250,
+                                            254,
+                                            258,
+                                            260,
+                                            262,
+                                            264,
+                                            266,
+                                            268,
+                                            270,
+                                            274,
+                                            277,
+                                            278,
+                                            283,
+                                            285,
+                                            287,
+                                            289,
+                                            293,
+                                            295,
+                                            301,
+                                            303,
+                                            305,
+                                            307,
+                                            309,
+                                            311,
+                                            312,
+                                            314,
+                                            318,
+                                            322,
+                                            323,
+                                            324,
+                                            345,
+                                            349,
+                                            352,
+                                            364,
+                                            366,
+                                            368,
+                                            374,
+                                            376,
+                                            378,
+                                            380,
+                                            384,
+                                            388,
+                                            401,
+                                            403,
+                                            413,
+                                            418,
+                                            446,
+                                            448,
+                                            457,
+                                            462,
+                                            472,
+                                            515,
+                                            519,
+                                            521
+                                        ]
+                                    },
+                                    "MD029": {
+                                        "description": "Ordered list item prefix",
+                                        "line": [
+                                            280,
+                                            284
+                                        ]
+                                    },
+                                    "MD038": {
+                                        "description": "Spaces inside code span elements",
+                                        "line": [
+                                            59,
+                                            60
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 40,
+                "total_subcriteria": 5,
+                "success_subcriteria": 2
+            }
+        },
+        "QC.Lic": {
+            "valid": false,
+            "subcriteria": {},
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 0,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sec": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sec02": {
+                    "description": "Is the source code passing Static Analysis Security Testing (SAST)?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the SAST tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Found security weaknesses when performing SAST checks with bandit tool",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-bandit",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "bandit",
+                                "lang": "Python",
+                                "version": "1.7.4",
+                                "docker": {
+                                    "dockerfile": "QC.Sec/bandit/Dockerfile",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sec github.com/ARGOeu/argo-scg bandit",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "bandit -f json --quiet  --confidence-level high --severity-level high --recursive  ."
+                                    ],
+                                    "stdout_text": "{\n  \"errors\": [],\n  \"generated_at\": \"2025-10-20T17:30:06Z\",\n  \"metrics\": {\n    \"./exec/scg-ack.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 44,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./exec/scg-reload.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 208,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./exec/sensu2publisher.py\": {\n      \"CONFIDENCE.HIGH\": 2,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 2,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 78,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 198,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/exceptions.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 25,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/generator.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 1423,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/logger.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 20,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/poem.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 74,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/sensu.py\": {\n      \"CONFIDENCE.HIGH\": 4,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 3,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 1354,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/utils.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 7,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./modules/webapi.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 98,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./setup.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 25,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/__init__.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 0,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/test_config.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 465,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/test_generator.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 15844,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/test_poem.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 1,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 1,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 573,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/test_sensu.py\": {\n      \"CONFIDENCE.HIGH\": 1,\n      \"CONFIDENCE.LOW\": 4,\n      \"CONFIDENCE.MEDIUM\": 11,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 12,\n      \"SEVERITY.MEDIUM\": 4,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 10169,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/test_utils.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 14,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/test_webapi.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 4,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 4,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 558,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"./tests/utils.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 11,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 7,\n      \"CONFIDENCE.LOW\": 4,\n      \"CONFIDENCE.MEDIUM\": 17,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 1,\n      \"SEVERITY.LOW\": 23,\n      \"SEVERITY.MEDIUM\": 4,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 31188,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": [\n    {\n      \"code\": \"87                     f\\\"entities,events,assets,checks,filters,handlers,silenced \\\"\\n88                     f\\\"--namespace {namespace} | sensuctl delete\\\", shell=True\\n89                 )\\n90                 self.logger.info(f\\\"Namespace {namespace} emptied\\\")\\n91                 response = requests.delete(\\n92                     f\\\"{self.url}/api/core/v2/namespaces/{namespace}\\\",\\n\",\n      \"col_offset\": 16,\n      \"filename\": \"./modules/sensu.py\",\n      \"issue_confidence\": \"HIGH\",\n      \"issue_cwe\": {\n        \"id\": 78,\n        \"link\": \"https://cwe.mitre.org/data/definitions/78.html\"\n      },\n      \"issue_severity\": \"HIGH\",\n      \"issue_text\": \"subprocess call with shell=True identified, security issue.\",\n      \"line_number\": 88,\n      \"line_range\": [\n        85,\n        86,\n        87,\n        88\n      ],\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.7.4/plugins/b602_subprocess_popen_with_shell_equals_true.html\",\n      \"test_id\": \"B602\",\n      \"test_name\": \"subprocess_popen_with_shell_equals_true\"\n    }\n  ]\n}",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/79/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {
+                                "errors": [],
+                                "generated_at": "2025-10-20T17:30:06Z",
+                                "metrics": {
+                                    "./exec/scg-ack.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 44,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./exec/scg-reload.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 208,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./exec/sensu2publisher.py": {
+                                        "CONFIDENCE.HIGH": 2,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 2,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 78,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 1,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 198,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/exceptions.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 25,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/generator.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 1423,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/logger.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 20,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/poem.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 74,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/sensu.py": {
+                                        "CONFIDENCE.HIGH": 4,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 1,
+                                        "SEVERITY.LOW": 3,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 1354,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/utils.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 7,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./modules/webapi.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 98,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./setup.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 25,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/__init__.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 0,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/test_config.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 465,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/test_generator.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 15844,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/test_poem.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 1,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 1,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 573,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/test_sensu.py": {
+                                        "CONFIDENCE.HIGH": 1,
+                                        "CONFIDENCE.LOW": 4,
+                                        "CONFIDENCE.MEDIUM": 11,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 12,
+                                        "SEVERITY.MEDIUM": 4,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 10169,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/test_utils.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 14,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/test_webapi.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 4,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 4,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 558,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "./tests/utils.py": {
+                                        "CONFIDENCE.HIGH": 0,
+                                        "CONFIDENCE.LOW": 0,
+                                        "CONFIDENCE.MEDIUM": 0,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 0,
+                                        "SEVERITY.LOW": 0,
+                                        "SEVERITY.MEDIUM": 0,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 11,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    },
+                                    "_totals": {
+                                        "CONFIDENCE.HIGH": 7,
+                                        "CONFIDENCE.LOW": 4,
+                                        "CONFIDENCE.MEDIUM": 17,
+                                        "CONFIDENCE.UNDEFINED": 0,
+                                        "SEVERITY.HIGH": 1,
+                                        "SEVERITY.LOW": 23,
+                                        "SEVERITY.MEDIUM": 4,
+                                        "SEVERITY.UNDEFINED": 0,
+                                        "loc": 31188,
+                                        "nosec": 0,
+                                        "skipped_tests": 0
+                                    }
+                                },
+                                "results": [
+                                    {
+                                        "code": "87                     f\"entities,events,assets,checks,filters,handlers,silenced \"\n88                     f\"--namespace {namespace} | sensuctl delete\", shell=True\n89                 )\n90                 self.logger.info(f\"Namespace {namespace} emptied\")\n91                 response = requests.delete(\n92                     f\"{self.url}/api/core/v2/namespaces/{namespace}\",\n",
+                                        "col_offset": 16,
+                                        "filename": "./modules/sensu.py",
+                                        "issue_confidence": "HIGH",
+                                        "issue_cwe": {
+                                            "id": 78,
+                                            "link": "https://cwe.mitre.org/data/definitions/78.html"
+                                        },
+                                        "issue_severity": "HIGH",
+                                        "issue_text": "subprocess call with shell=True identified, security issue.",
+                                        "line_number": 88,
+                                        "line_range": [
+                                            85,
+                                            86,
+                                            87,
+                                            88
+                                        ],
+                                        "more_info": "https://bandit.readthedocs.io/en/1.7.4/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+                                        "test_id": "B602",
+                                        "test_name": "subprocess_popen_with_shell_equals_true"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Sty": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Sty01": {
+                    "description": "Is the software product following a style standard for Python files?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the security weaknesses found by the linter tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Python files are not fully compliant with flake8 (pycodestyle, pyflakes, mccabe) standard",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-flake8",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "flake8",
+                                "lang": "Python",
+                                "version": "4.0.1 (mccabe: 0.6.1, pycodestyle: 2.8.0, pyflakes: 2.4.0)",
+                                "docker": {
+                                    "image": "pipelinecomponents/flake8:0.9.0",
+                                    "reviewed": "2022-03-04"
+                                },
+                                "ci": {
+                                    "name": "QC.Sty github.com/ARGOeu/argo-scg flake8",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "flake8 ."
+                                    ],
+                                    "stdout_text": "./modules/generator.py:193:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:206:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:374:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:681:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:698:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:945:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:962:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:989:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1174:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1245:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1252:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1264:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1317:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1321:37: E131 continuation line unaligned for hanging indent\n./modules/generator.py:1457:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1496:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1583:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1688:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:179:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:299:17: E303 too many blank lines (2)\n./modules/sensu.py:458:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:585:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:1292:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:1388:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:1685:80: E501 line too long (80 > 79 characters)\n./modules/config.py:45:80: E501 line too long (80 > 79 characters)\n./modules/config.py:52:80: E501 line too long (80 > 79 characters)\n./modules/config.py:121:80: E501 line too long (80 > 79 characters)\n./modules/config.py:167:80: E501 line too long (80 > 79 characters)\n./exec/scg-reload.py:24:80: E501 line too long (80 > 79 characters)\n./exec/scg-reload.py:150:80: E501 line too long (80 > 79 characters)\n./tests/test_poem.py:160:80: E501 line too long (80 > 79 characters)\n./tests/test_poem.py:402:80: E501 line too long (80 > 79 characters)\n./tests/test_poem.py:478:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:115:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:188:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:256:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:318:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:384:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:500:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:816:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1300:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1595:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1687:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1729:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:3071:80: E501 line too long (98 > 79 characters)\n./tests/test_generator.py:3986:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:4022:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:4917:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:4917:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5017:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5017:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5189:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5189:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5325:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5325:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5391:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5391:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5531:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5531:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5632:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5632:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5695:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5695:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5708:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:5812:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5812:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5917:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5917:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6009:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6095:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6095:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6106:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6159:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6159:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6237:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6237:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6302:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6302:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6315:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6373:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6373:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6436:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6436:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6450:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6501:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6501:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6564:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6564:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6629:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6629:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6749:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6749:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6765:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6912:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6912:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6984:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6991:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7078:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7078:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7151:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7158:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7237:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7237:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7302:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7302:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7419:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7419:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7514:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7514:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7573:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7573:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7634:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7634:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7717:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7717:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7778:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7778:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7791:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7830:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7855:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7855:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7868:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7931:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7931:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7994:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7994:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8112:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8112:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8224:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8224:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8338:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8338:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8448:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8448:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8547:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8547:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8609:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8609:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8680:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8680:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8752:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8752:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8846:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8846:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8931:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8931:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9048:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9048:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9149:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9149:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9257:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9257:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9322:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9322:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9443:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9443:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9546:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9546:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9578:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:9613:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9613:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9645:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:9678:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9678:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9743:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9743:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9865:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9865:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9971:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9971:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10025:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10035:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10035:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10102:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10122:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10122:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10236:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10236:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10299:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10299:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10353:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10402:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10402:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10494:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10542:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10542:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10667:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10667:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10677:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10729:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10729:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10832:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10832:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10894:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10894:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11009:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11009:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11064:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11064:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11088:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11163:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11163:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11206:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11206:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11343:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11343:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11415:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11415:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11489:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11489:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11506:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11527:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11555:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11555:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11577:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11579:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11581:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11650:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11650:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11710:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11710:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11789:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11789:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11845:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11845:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11899:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11899:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11944:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11944:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12038:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12038:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12135:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12135:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12208:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:12256:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12256:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12329:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:12365:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12365:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12421:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12421:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12483:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12483:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12553:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12553:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12612:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12612:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12690:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12690:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12747:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12747:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12849:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12849:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12931:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12931:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12988:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12988:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13005:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:13030:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13030:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13083:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13083:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13164:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13164:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13239:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13239:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13300:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13300:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13376:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13376:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13447:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13447:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13520:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13520:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13587:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13587:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13643:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13643:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13697:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13697:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13760:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13760:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13824:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13824:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13878:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13878:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13950:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13950:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14008:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14008:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14114:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14114:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14143:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14171:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14171:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14245:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14245:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14291:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14291:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14308:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14369:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14369:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14386:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14503:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14503:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14520:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14622:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14622:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14705:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14705:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14774:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14776:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14778:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14988:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14988:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:15037:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:15037:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:15068:80: E501 line too long (80 > 79 characters)\n./tests/test_webapi.py:378:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:1681:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:1902:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:1987:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2002:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2508:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2617:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2664:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2701:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2746:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:3400:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:3639:1: E302 expected 2 blank lines, found 1\n./tests/test_sensu.py:4160:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4179:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4207:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4286:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4439:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4463:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4488:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4513:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4635:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4720:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4780:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4850:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4913:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4986:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5006:5: F811 redefinition of unused 'test_handle_check_with_changing_handler' from line 4600\n./tests/test_sensu.py:5041:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5178:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5430:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5465:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5504:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5550:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5578:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5854:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5882:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5891:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5909:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5918:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5936:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:6199:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7146:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7598:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7623:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7763:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7937:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8234:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8261:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8295:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8384:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8452:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8526:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8558:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8585:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8619:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8708:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8776:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8850:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8917:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9009:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9013:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9043:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9050:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9052:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9091:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9111:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9123:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9127:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9152:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9174:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9176:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9178:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9188:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9240:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9242:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9253:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9258:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9263:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9269:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9281:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9285:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9292:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9313:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9314:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9351:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9363:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9368:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9370:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9382:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9390:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9392:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9396:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9404:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9720:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10038:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10045:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10210:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10276:80: E501 line too long (80 > 79 characters)",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/88/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": "./modules/generator.py:193:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:206:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:374:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:681:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:698:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:945:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:962:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:989:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1174:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1245:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1252:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1264:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1317:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1321:37: E131 continuation line unaligned for hanging indent\n./modules/generator.py:1457:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1496:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1583:80: E501 line too long (80 > 79 characters)\n./modules/generator.py:1688:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:179:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:299:17: E303 too many blank lines (2)\n./modules/sensu.py:458:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:585:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:1292:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:1388:80: E501 line too long (80 > 79 characters)\n./modules/sensu.py:1685:80: E501 line too long (80 > 79 characters)\n./modules/config.py:45:80: E501 line too long (80 > 79 characters)\n./modules/config.py:52:80: E501 line too long (80 > 79 characters)\n./modules/config.py:121:80: E501 line too long (80 > 79 characters)\n./modules/config.py:167:80: E501 line too long (80 > 79 characters)\n./exec/scg-reload.py:24:80: E501 line too long (80 > 79 characters)\n./exec/scg-reload.py:150:80: E501 line too long (80 > 79 characters)\n./tests/test_poem.py:160:80: E501 line too long (80 > 79 characters)\n./tests/test_poem.py:402:80: E501 line too long (80 > 79 characters)\n./tests/test_poem.py:478:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:115:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:188:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:256:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:318:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:384:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:500:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:816:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1300:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1595:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1687:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:1729:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:3071:80: E501 line too long (98 > 79 characters)\n./tests/test_generator.py:3986:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:4022:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:4917:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:4917:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5017:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5017:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5189:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5189:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5325:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5325:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5391:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5391:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5531:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5531:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5632:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5632:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5695:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5695:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5708:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:5812:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5812:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5917:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:5917:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6009:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6095:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6095:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6106:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6159:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6159:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6237:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6237:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6302:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6302:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6315:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6373:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6373:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6436:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6436:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6450:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6501:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6501:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6564:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6564:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6629:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6629:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6749:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6749:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6765:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6912:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6912:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:6984:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:6991:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7078:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7078:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7151:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7158:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7237:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7237:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7302:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7302:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7419:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7419:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7514:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7514:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7573:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7573:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7634:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7634:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7717:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7717:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7778:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7778:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7791:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7830:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7855:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7855:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7868:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:7931:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7931:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7994:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:7994:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8112:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8112:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8224:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8224:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8338:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8338:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8448:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8448:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8547:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8547:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8609:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8609:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8680:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8680:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8752:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8752:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8846:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8846:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8931:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:8931:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9048:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9048:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9149:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9149:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9257:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9257:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9322:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9322:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9443:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9443:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9546:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9546:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9578:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:9613:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9613:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9645:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:9678:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9678:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9743:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9743:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9865:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9865:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9971:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:9971:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10025:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10035:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10035:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10102:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10122:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10122:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10236:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10236:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10299:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10299:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10353:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10402:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10402:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10494:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10542:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10542:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10667:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10667:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10677:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:10729:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10729:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10832:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10832:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10894:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:10894:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11009:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11009:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11064:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11064:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11088:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11163:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11163:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11206:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11206:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11343:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11343:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11415:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11415:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11489:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11489:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11506:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11527:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11555:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11555:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11577:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11579:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11581:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:11650:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11650:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11710:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11710:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11789:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11789:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11845:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11845:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11899:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11899:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11944:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:11944:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12038:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12038:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12135:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12135:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12208:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:12256:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12256:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12329:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:12365:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12365:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12421:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12421:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12483:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12483:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12553:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12553:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12612:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12612:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12690:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12690:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12747:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12747:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12849:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12849:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12931:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12931:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12988:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:12988:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13005:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:13030:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13030:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13083:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13083:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13164:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13164:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13239:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13239:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13300:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13300:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13376:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13376:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13447:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13447:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13520:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13520:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13587:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13587:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13643:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13643:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13697:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13697:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13760:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13760:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13824:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13824:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13878:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13878:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13950:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:13950:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14008:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14008:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14114:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14114:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14143:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14171:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14171:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14245:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14245:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14291:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14291:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14308:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14369:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14369:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14386:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14503:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14503:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14520:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14622:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14622:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14705:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14705:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14774:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14776:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14778:80: E501 line too long (80 > 79 characters)\n./tests/test_generator.py:14988:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:14988:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:15037:26: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:15037:28: E251 unexpected spaces around keyword / parameter equals\n./tests/test_generator.py:15068:80: E501 line too long (80 > 79 characters)\n./tests/test_webapi.py:378:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:1681:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:1902:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:1987:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2002:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2508:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2617:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2664:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2701:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:2746:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:3400:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:3639:1: E302 expected 2 blank lines, found 1\n./tests/test_sensu.py:4160:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4179:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4207:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4286:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4439:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4463:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4488:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4513:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4635:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4720:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4780:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4850:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4913:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:4986:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5006:5: F811 redefinition of unused 'test_handle_check_with_changing_handler' from line 4600\n./tests/test_sensu.py:5041:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5178:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5430:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5465:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5504:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5550:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5578:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5854:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5882:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5891:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5909:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5918:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:5936:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:6199:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7146:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7598:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7623:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7763:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:7937:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8234:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8261:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8295:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8384:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8452:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8526:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8558:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8585:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8619:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8708:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8776:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8850:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:8917:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9009:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9013:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9043:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9050:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9052:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9091:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9111:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9123:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9127:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9152:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9174:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9176:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9178:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9188:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9240:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9242:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9253:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9258:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9263:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9269:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9281:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9285:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9292:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9313:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9314:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9351:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9363:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9368:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9370:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9382:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9390:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9392:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9396:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9404:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:9720:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10038:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10045:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10210:80: E501 line too long (80 > 79 characters)\n./tests/test_sensu.py:10276:80: E501 line too long (80 > 79 characters)"
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Uni": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Uni01": {
+                    "description": "Are the tests passing through an automated means?",
+                    "requirement_level": "MUST",
+                    "hint": "Please check & solve the failing test cases found by the {tool_name} tool",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Test cases are not passing using None testing framework",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-jenkins_exit_status",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "pytest",
+                                "lang": "Python",
+                                "version": "7.1.3",
+                                "docker": {
+                                    "image": "eoscsynergy/sqaaas-pytest:7.1.3-alpha",
+                                    "reviewed": "2023-08-09"
+                                },
+                                "ci": {
+                                    "name": "QC.Uni github.com/ARGOeu/argo-scg pytest",
+                                    "status": "FAILED",
+                                    "stdout_command": [
+                                        "pytest  --json-report  --json-report-indent 4"
+                                    ],
+                                    "stdout_text": "============================= test session starts ==============================\nplatform linux -- Python 3.9.17, pytest-7.1.3, pluggy-1.2.0\nrootdir: /sqaaas-build/github.com/ARGOeu/argo-scg\nplugins: metadata-3.0.0, json-report-1.5.0\ncollected 0 items / 6 errors\n\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_config.py _____________________\nImportError while importing test module '/sqaaas-build/github.com/ARGOeu/argo-scg/tests/test_config.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_config.py:4: in <module>\n    from argo_scg.config import Config, AgentConfig\nE   ModuleNotFoundError: No module named 'argo_scg'\n___________________ ERROR collecting tests/test_generator.py ___________________\nImportError while importing test module '/sqaaas-build/github.com/ARGOeu/argo-scg/tests/test_generator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_generator.py:5: in <module>\n    from argo_scg.exceptions import GeneratorException\nE   ModuleNotFoundError: No module named 'argo_scg'\n_____________________ ERROR collecting tests/test_poem.py ______________________\nImportError while importing test module '/sqaaas-build/github.com/ARGOeu/argo-scg/tests/test_poem.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_poem.py:5: in <module>\n    from argo_scg.poem import Poem, PoemException\nE   ModuleNotFoundError: No module named 'argo_scg'\n_____________________ ERROR collecting tests/test_sensu.py _____________________\nImportError while importing test module '/sqaaas-build/github.com/ARGOeu/argo-scg/tests/test_sensu.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_sensu.py:8: in <module>\n    from argo_scg.exceptions import SensuException, SCGWarnException\nE   ModuleNotFoundError: No module named 'argo_scg'\n_____________________ ERROR collecting tests/test_utils.py _____________________\nImportError while importing test module '/sqaaas-build/github.com/ARGOeu/argo-scg/tests/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_utils.py:3: in <module>\n    from argo_scg.utils import namespace4tenant\nE   ModuleNotFoundError: No module named 'argo_scg'\n____________________ ERROR collecting tests/test_webapi.py _____________________\nImportError while importing test module '/sqaaas-build/github.com/ARGOeu/argo-scg/tests/test_webapi.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.9/importlib/__init__.py:127: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_webapi.py:6: in <module>\n    from argo_scg.exceptions import WebApiException\nE   ModuleNotFoundError: No module named 'argo_scg'\n--------------------------------- JSON report ----------------------------------\nreport saved to: .report.json\n=========================== short test summary info ============================\nERROR tests/test_config.py\nERROR tests/test_generator.py\nERROR tests/test_poem.py\nERROR tests/test_sensu.py\nERROR tests/test_utils.py\nERROR tests/test_webapi.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 6 errors in 2.09s ===============================",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/97/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": {}
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        },
+        "QC.Ver": {
+            "valid": true,
+            "subcriteria": {
+                "QC.Ver01.0": {
+                    "description": "Are tags being used for releasing software",
+                    "requirement_level": "MUST",
+                    "hint": "Git tags are a convenient way to release software. This subcriterion checks if any git tag is present in the code history. More info on it-scm.com/book/en/v2/Git-Basics-Tagging\" target=\"_blank\">git tagging</a>",
+                    "evidence": [
+                        {
+                            "valid": true,
+                            "message": "The code repository uses tags for releasing new software versions",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/ARGOeu/argo-scg get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "['v0.7.5', 'v0.7.4', 'v.0.7.3', 'v.0.7.2', 'v.0.7.0', 'v.0.6.2', 'v.0.6.1', 'v.0.6.0', 'v.0.5.2', 'v.0.5.1', 'v.0.5.0', 'v.0.4.1', 'v.0.4.0', 'v.0.3.0', 'v.0.2.3', 'v.0.2.2-1', 'v.0.2.2', 'v.0.2.1', 'v.0.1.1']",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": [
+                                "v0.7.5",
+                                "v0.7.4",
+                                "v.0.7.3",
+                                "v.0.7.2",
+                                "v.0.7.0",
+                                "v.0.6.2",
+                                "v.0.6.1",
+                                "v.0.6.0",
+                                "v.0.5.2",
+                                "v.0.5.1",
+                                "v.0.5.0",
+                                "v.0.4.1",
+                                "v.0.4.0",
+                                "v.0.3.0",
+                                "v.0.2.3",
+                                "v.0.2.2-1",
+                                "v.0.2.2",
+                                "v.0.2.1",
+                                "v.0.1.1"
+                            ]
+                        }
+                    ],
+                    "valid": true
+                },
+                "QC.Ver01": {
+                    "description": "Is the latest release compliant with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Latest tag must be compliant with <a href=\"https://semver.org\" target=\"_blank\">SemVer specification</a>",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Latest release tag v0.7.5 found, but is not SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/ARGOeu/argo-scg get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "['v0.7.5', 'v0.7.4', 'v.0.7.3', 'v.0.7.2', 'v.0.7.0', 'v.0.6.2', 'v.0.6.1', 'v.0.6.0', 'v.0.5.2', 'v.0.5.1', 'v.0.5.0', 'v.0.4.1', 'v.0.4.0', 'v.0.3.0', 'v.0.2.3', 'v.0.2.2-1', 'v.0.2.2', 'v.0.2.1', 'v.0.1.1']",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": [
+                                "v0.7.5",
+                                "v0.7.4",
+                                "v.0.7.3",
+                                "v.0.7.2",
+                                "v.0.7.0",
+                                "v.0.6.2",
+                                "v.0.6.1",
+                                "v.0.6.0",
+                                "v.0.5.2",
+                                "v.0.5.1",
+                                "v.0.5.0",
+                                "v.0.4.1",
+                                "v.0.4.0",
+                                "v.0.3.0",
+                                "v.0.2.3",
+                                "v.0.2.2-1",
+                                "v.0.2.2",
+                                "v.0.2.1",
+                                "v.0.1.1"
+                            ]
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                },
+                "QC.Ver02": {
+                    "description": "Are all release tags with Semantic Versioning (SemVer) specification?",
+                    "requirement_level": "SHOULD",
+                    "hint": "Existent release tags shall be <a href=\"https://semver.org\" target=\"_blank\">SemVer</a> compliant for this subcriterion to be successful",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "Not all release tags are SemVer compliant",
+                            "plugin": {
+                                "name": "report2sqaaas-plugin-is_semver",
+                                "version": "2.1.0"
+                            },
+                            "tool": {
+                                "name": "get_git_tags.py",
+                                "lang": "Semantic Versioning",
+                                "version": "latest",
+                                "docker": {
+                                    "dockerfile": "QC.Ver/Dockerfile",
+                                    "reviewed": "2022-05-10"
+                                },
+                                "ci": {
+                                    "name": "QC.Ver github.com/ARGOeu/argo-scg get_git_tags.py",
+                                    "status": "SUCCESS",
+                                    "stdout_command": [
+                                        "get_git_tags.py"
+                                    ],
+                                    "stdout_text": "['v0.7.5', 'v0.7.4', 'v.0.7.3', 'v.0.7.2', 'v.0.7.0', 'v.0.6.2', 'v.0.6.1', 'v.0.6.0', 'v.0.5.2', 'v.0.5.1', 'v.0.5.0', 'v.0.4.1', 'v.0.4.0', 'v.0.3.0', 'v.0.2.3', 'v.0.2.2-1', 'v.0.2.2', 'v.0.2.1', 'v.0.1.1']",
+                                    "url": "https://jenkins.eosc-synergy.eu/job/eosc-synergy-org/job/argo-scg.git.assess.sqaaas/job/master/1/execution/node/106/log?consoleFull"
+                                },
+                                "level": "REQUIRED",
+                                "build_repo": "https://github.com/eosc-synergy/argo-scg.git.assess.sqaaas"
+                            },
+                            "standard": {
+                                "title": "A set of Common Software Quality Assurance Baseline Criteria for Research Projects",
+                                "version": "v4.0",
+                                "url": "https://github.com/indigo-dc/sqa-baseline/releases/tag/v4.0"
+                            },
+                            "data_unstructured": [
+                                "v0.7.5",
+                                "v0.7.4",
+                                "v.0.7.3",
+                                "v.0.7.2",
+                                "v.0.7.0",
+                                "v.0.6.2",
+                                "v.0.6.1",
+                                "v.0.6.0",
+                                "v.0.5.2",
+                                "v.0.5.1",
+                                "v.0.5.0",
+                                "v.0.4.1",
+                                "v.0.4.0",
+                                "v.0.3.0",
+                                "v.0.2.3",
+                                "v.0.2.2-1",
+                                "v.0.2.2",
+                                "v.0.2.1",
+                                "v.0.1.1"
+                            ]
+                        }
+                    ],
+                    "valid": false,
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 33,
+                "total_subcriteria": 3,
+                "success_subcriteria": 1
+            }
+        },
+        "QC.Met": {
+            "valid": false,
+            "subcriteria": {
+                "QC.Met01": {
+                    "description": "Is the software citable?",
+                    "valid": false,
+                    "hint": "The two formats for software citation supported by SQAaaS are: 1) <a href=\"https://codemeta.github.io/\" target=\"_blank\">CodeMeta</a> and 2) <a href=\"https://citation-file-format.github.io/\" target=\"_blank\">Citation File Format (CFF)</a>. While CodeMeta provides you with a more comprehensive description, CFF is a more lightweight, good-enough approach to software (with built-in support by GitHub) citation. Both provide tools (<a href=\"https://codemeta.github.io/codemeta-generator/\" target=\"_blank\">CodeMeta generator</a>, <a href=\"https://citation-file-format.github.io/cff-initializer-javascript/#/\" target=\"_blank\">CFFINIT</a>)to easily generate a working citation file. Once having the file, be sure to add it to the root path of your code repo.",
+                    "evidence": [
+                        {
+                            "valid": false,
+                            "message": "No matching files found for language <CodeMeta> in repository searching by extensions or filenames\nNo matching files found for language <Citation File Format> in repository searching by extensions or filenames"
+                        }
+                    ],
+                    "required_for_next_level_badge": false
+                }
+            },
+            "coverage": {
+                "percentage": 0,
+                "total_subcriteria": 1,
+                "success_subcriteria": 0
+            }
+        }
+    },
+    "badge": {
+        "software": {
+            "criteria": {
+                "bronze": {
+                    "to_fulfill": [
+                        "QC.Acc",
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Acc"
+                    ]
+                },
+                "silver": {
+                    "to_fulfill": [
+                        "QC.Ver",
+                        "QC.Met",
+                        "QC.Acc",
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "missing": [
+                        "QC.Doc",
+                        "QC.Met",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Ver",
+                        "QC.Acc"
+                    ]
+                },
+                "gold": {
+                    "to_fulfill": [
+                        "QC.Sty",
+                        "QC.Ver",
+                        "QC.Met",
+                        "QC.Sec",
+                        "QC.Acc",
+                        "QC.Uni",
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "missing": [
+                        "QC.Sty",
+                        "QC.Met",
+                        "QC.Sec",
+                        "QC.Uni",
+                        "QC.Doc",
+                        "QC.Lic"
+                    ],
+                    "fulfilled": [
+                        "QC.Ver",
+                        "QC.Acc"
+                    ]
+                }
+            },
+            "data": {}
+        }
+    }
+}
