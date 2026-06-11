@@ -5,7 +5,7 @@ config:
       branch: master
       repo: https://github.com/ARGOeu/argo-scg.git
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: main
+      branch: feature/pynblint_fix
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,50 +15,50 @@ sqa_criteria:
     repos:
       github.com/ARGOeu/argo-scg git:
         commands:
-        - /usr/bin/env sh .sqa/script.chummy-emerald-gorilla.sh
-        container: qc.acc_ready-auburn-shark
+        - /usr/bin/env sh .sqa/script.harlequin_reserved_turkey.sh
+        container: qc.acc_wave_persistent_kookaburra
   QC.Doc:
     repos:
       github.com/ARGOeu/argo-scg find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.bumpy-gold-bracke.sh
-        container: qc.doc_smelly-thistle-walrus
+        - /usr/bin/env sh .sqa/script.banana_fair_shark.sh
+        container: qc.doc_powder_restless_wolf
       github.com/ARGOeu/argo-scg git:
         commands:
-        - /usr/bin/env sh .sqa/script.foggy-fuchsia-elephant.sh
-        container: qc.doc_seedy-cardinal-wasp
+        - /usr/bin/env sh .sqa/script.ice_spontaneous_tarantula.sh
+        container: qc.doc_purple_sad_dolphin
       github.com/ARGOeu/argo-scg markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.foggy-ultramarine-bloodhound.sh
-        container: qc.doc_flaky-rust-tarantula
+        - /usr/bin/env sh .sqa/script.walnut_grateful_turtle.sh
+        container: qc.doc_fog_zany_finch
   QC.Lic:
     repos:
       github.com/ARGOeu/argo-scg licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.clammy-ultramarine-bobcat.sh
-        container: qc.lic_geeky-tomato-caterpillar
+        - /usr/bin/env sh .sqa/script.powder_helpful_manatee.sh
+        container: qc.lic_tundra_flexible_snail
   QC.Sec:
     repos:
       github.com/ARGOeu/argo-scg bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.frumpy-wisteria-gibbon.sh
-        container: qc.sec_beady-green-terrier
+        - /usr/bin/env sh .sqa/script.sunset_persistent_mandrill.sh
+        container: qc.sec_mauve_motivated_parrot
   QC.Sty:
     repos:
       github.com/ARGOeu/argo-scg flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.gloppy-flax-wasp.sh
-        container: qc.sty_stinky-scarlet-husky
+        - /usr/bin/env sh .sqa/script.thistle_artistic_narwhal.sh
+        container: qc.sty_fandango_bold_hawk
   QC.Uni:
     repos:
       github.com/ARGOeu/argo-scg pytest:
         commands:
-        - /usr/bin/env sh .sqa/script.queasy-rose-hornet.sh
-        container: qc.uni_scanty-malachite-corgi
+        - /usr/bin/env sh .sqa/script.jasmine_artistic_komodo.sh
+        container: qc.uni_pink_respectful_beaver
   QC.Ver:
     repos:
       github.com/ARGOeu/argo-scg get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.homely-taupe-pig.sh
-        container: qc.ver_baggy-rust-molly
+        - /usr/bin/env sh .sqa/script.blush_restless_snail.sh
+        container: qc.ver_emerald_responsible_camel
 timeout: 5400
